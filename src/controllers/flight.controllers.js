@@ -10,6 +10,7 @@ const getAll= catchError(async(req, res)=>{
 const getAllAvailable= async(req, res)=>{
     try {
         const results= await getAvailableFlights();
+        console.log('retornando solo los disponibles');
         return res.json(results).status(200);
     } catch (error) {
         res.status(500).json({ error: error.message });

@@ -6,6 +6,7 @@ const Flight = sequelize.define('flight', {
         type: DataTypes.STRING,
         allowNull: false,
         unique: true,
+        primaryKey: true
       },
     airline: {
         type: DataTypes.STRING,

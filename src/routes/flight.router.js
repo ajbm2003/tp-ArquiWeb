@@ -4,11 +4,13 @@ const express = require('express');
 const flightRouter = express.Router();
 
 flightRouter.route('/flights')
-    .get(getAll)
+    .get((req, res) => {
+            if (req.query.filter === 'available') {
+                return getAllAvailable(req, res);
+            }
+        return getAll(req, res);
+        })
     .post(create);
-
-flightRouter.route('/flights/available')
-    .get(getAllAvailable);
 
 flightRouter.route('/flights/:id')
     .get(getOne)

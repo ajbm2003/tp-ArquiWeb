@@ -5,7 +5,7 @@ const Booking = require('../models/Booking');
 const createBooking = async (flightNumber, passengerName, passengerEmail) => {
   // Verificar si el vuelo y el ususario existe
   const flight = await Flight.findByPk(flightNumber);
-  const user = await User.findOne({where: { passengerEmail }})
+  const user = await User.findOne({where: { email: passengerEmail }})
   if (!flight) {
     throw new Error('Flight not found');
   }
